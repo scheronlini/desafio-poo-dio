@@ -2,23 +2,28 @@ package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
 
-public class InformacoesPessoais {
+public  abstract class Pessoa {
 
     private String nome;
+
+    private Endereco endereco;
     private LocalDate nascimento;
-    private String estado;
-    private String cidade;
-    private int cep;
-    private String rua;
-    private int numeroCasa;
     private String email;
     private String github;
     private String linkedin;
 
+    public Pessoa(String nome, String nascimento, String email, String github, String linkedin, String pais, String estado, String cidade, int cep, String rua, int numeroCasa ) {
+        this.nome = nome;
+        this.endereco =new Endereco(pais,estado,cidade,cep,rua,numeroCasa,this);
+        this.nascimento = LocalDate.parse(nascimento);
+        this.email = email;
+        this.github = github;
+        this.linkedin = linkedin;
+    }
+
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -29,46 +34,6 @@ public class InformacoesPessoais {
 
     public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public int getCep() {
-        return cep;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public int getNumeroCasa() {
-        return numeroCasa;
-    }
-
-    public void setNumeroCasa(int numeroCasa) {
-        this.numeroCasa = numeroCasa;
     }
 
     public String getEmail() {
@@ -93,5 +58,16 @@ public class InformacoesPessoais {
 
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
+    }
+
+    @Override
+    public String toString() {
+        return "InformacoesPessoais \n" +
+                "Nome= " + nome + "\n" +
+                "Data de nascimento= " + nascimento + "\n" +
+                "email= " + email + "\n" +
+                "github= " + github + "\n" +
+                "linkedin= " + linkedin + "\n"+
+                endereco.toString();
     }
 }

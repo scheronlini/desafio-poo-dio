@@ -1,6 +1,7 @@
 package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -8,12 +9,22 @@ import java.util.Set;
 
 public class Bootcamp {
     private String nome;
-    private String descricao;
-    private final LocalDate dataInicial = LocalDate.now();
-    private final LocalDate dataFinal = dataInicial.plusDays(45);
-    private Set<Dev> devsInscritos = new HashSet<>();
-    private Set<Conteudo> conteudos = new LinkedHashSet<>();
 
+    private String descricao;
+
+    private final LocalDate dataInicial = LocalDate.now();
+
+    private final LocalDate dataFinal = dataInicial.plusDays(45);
+
+    private Set<Dev> devsInscritos = new HashSet<>();
+
+    private Set<Conteudo> conteudos;
+
+    public Bootcamp(String nome, String descricao, Set<Conteudo> conteudos) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.conteudos = conteudos;
+    }
 
     public String getNome() {
         return nome;
@@ -46,7 +57,6 @@ public class Bootcamp {
     public void setDevsInscritos(Set<Dev> devsInscritos) {
         this.devsInscritos = devsInscritos;
     }
-
     public Set<Conteudo> getConteudos() {
         return conteudos;
     }
@@ -66,5 +76,13 @@ public class Bootcamp {
     @Override
     public int hashCode() {
         return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos);
+    }
+
+    @Override
+    public String toString() {
+        return "Dados referente ao Bootcamp: " + nome + "\n" +
+                "Descricao do Bootcamp= " + descricao + "\n" +
+                "Data de Inicio= " + dataInicial + "\n" +
+                "Data do Término= " + dataFinal;
     }
 }
