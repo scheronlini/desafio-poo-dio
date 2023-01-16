@@ -5,14 +5,14 @@ import java.time.LocalDate;
 public  abstract class Pessoa {
 
     private String nome;
-
     private Endereco endereco;
     private LocalDate nascimento;
     private String email;
     private String github;
     private String linkedin;
 
-    public Pessoa(String nome, String nascimento, String email, String github, String linkedin, String pais, String estado, String cidade, int cep, String rua, int numeroCasa ) {
+    public Pessoa(String nome, String nascimento, String email, String github, String linkedin, String pais,
+     String estado, String cidade, int cep, String rua, int numeroCasa ) {
         this.nome = nome;
         this.endereco =new Endereco(pais,estado,cidade,cep,rua,numeroCasa,this);
         this.nascimento = LocalDate.parse(nascimento);

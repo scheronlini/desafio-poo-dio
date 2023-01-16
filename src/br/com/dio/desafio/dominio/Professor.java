@@ -4,7 +4,8 @@ public class Professor extends Pessoa {
 
     Materia materia;
 
-    public Professor(String nome, String nascimento, String email, String github, String linkedin, String pais, String estado, String cidade, int cep, String rua, int numeroCasa) {
+    public Professor(String nome, String nascimento, String email, String github, String linkedin, String pais,
+     String estado, String cidade, int cep, String rua, int numeroCasa) {
         super(nome, nascimento, email, github, linkedin, pais, estado, cidade, cep, rua, numeroCasa);
         }
 

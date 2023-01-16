@@ -3,11 +3,13 @@ package br.com.dio.desafio.dominio;
 import java.util.*;
 
 public class Dev extends Pessoa {
+
     private Bootcamp bootcamp;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
-    public Dev(String nome, String nascimento, String email, String github, String linkedin, String pais, String estado, String cidade, int cep, String rua, int numeroCasa) {
+    public Dev(String nome, String nascimento, String email, String github, String linkedin, String pais,
+     String estado, String cidade, int cep, String rua, int numeroCasa) {
         super(nome, nascimento, email, github, linkedin, pais, estado, cidade, cep, rua, numeroCasa);
     }
 
@@ -63,4 +65,3 @@ public class Dev extends Pessoa {
     }
 
 }
-
